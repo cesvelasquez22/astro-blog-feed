@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
-import BlogPost from "../components/TypedBlogPost.astro";
+import BlogPost from "../components/BlogPost.astro";
 import { siteConfig } from "../config/site-config";
 import PageLayout from "../layouts/PageLayout.astro";
 
-const posts = await getCollection("blog");
+const matches = import.meta.glob("../pages/posts/*.{md,mdx}", { eager: true });
+const posts = Object.values(matches) as any[];
 ---
 
 <PageLayout title="Home | Blog">
@@ -18,7 +18,7 @@ const posts = await getCollection("blog");
       </h1>
 
       <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-        {posts.map((post) => <BlogPost post={post} />)}
+        {posts.map((post) => <BlogPost {...post} />)}
       </div>
     </div>
   </section>

@@ -1,0 +1,72 @@
+---
+import { Image, Picture } from "astro:assets";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+import post05Img from "@images/post-05.png";
+---
+
+<PageLayout title="Imágenes">
+  <h1 class="text-5xl text-white">Imágenes</h1>
+
+  <img src="/assets/images/post-05.png" alt="Imagen" width="250" height="250" />
+  <Image src={post05Img} alt="Imagen" width="250" height="250" />
+  <Image
+    src={post05Img}
+    style={{
+      width: "250px",
+      height: "250px",
+    }}
+    alt="Imagen"
+    width="500"
+    height="500"
+  />
+
+  <h1>Quality low</h1>
+  <Image quality="low" src={post05Img} alt="Imagen" width="250" height="250" />
+  <Image quality="high" src={post05Img} alt="Imagen" width="250" height="250" />
+
+  <h1>Formatos</h1>
+  <Image format="avif" src={post05Img} alt="Imagen" width="250" height="250" />
+  <h1>Picture Element</h1>
+  <Picture
+    formats={["jpeg", "png"]}
+    src={post05Img}
+    alt="Imagen"
+    width="250"
+    height="250"
+  />
+  <h1>Picture Fallback Widths</h1>
+  <!-- widths={[240, 540, 720, post05Img.width]}
+  sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px), 720px, ${post05Img.width}px`} -->
+  <Picture
+    src={post05Img}
+    alt="Imagen"
+    width="250"
+    height="250"
+    width={post05Img.width / 2}
+    densities={[1.5, 2]}
+  />
+
+  <div
+    style={{
+      height: "3000px",
+    }}
+  >
+  </div>
+
+  <img
+    loading="lazy"
+    src="/assets/images/post-01.png"
+    alt="Imagen"
+    width="250"
+    height="250"
+  />
+</PageLayout>
+
+<style>
+  @reference "../../styles/global.css";
+
+  h1 {
+    @apply text-white mt-10;
+  }
+</style>
