@@ -4,7 +4,7 @@ import BlogPost from "../components/TypedBlogPost.astro";
 import { siteConfig } from "../config/site-config";
 import PageLayout from "../layouts/PageLayout.astro";
 
-const posts = await getCollection("blog");
+const posts = await getCollection("blog", (post) => !post.data.isDraft);
 ---
 
 <PageLayout title="Home | Blog">
@@ -17,9 +17,19 @@ const posts = await getCollection("blog");
         {siteConfig.title}
       </h1>
 
+      <a class="mr-2" href="/blog/1">Blog paginado</a>
+      <a class="mr-2" href="/authors">Autores</a>
+
       <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
         {posts.map((post) => <BlogPost post={post} />)}
       </div>
     </div>
   </section>
 </PageLayout>
+
+<style>
+  @reference "../styles/global.css";
+  a {
+    @apply text-blue-500 hover:underline;
+  }
+</style>
