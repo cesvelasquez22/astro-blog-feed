@@ -10,6 +10,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://example.com",
+  site: "https://cesar-blog-feed.netlify.app",
   integrations: [mdx()],
 });
