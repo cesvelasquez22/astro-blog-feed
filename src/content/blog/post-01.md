@@ -5,15 +5,15 @@ description: Explorando algunas de las nuevas funciones de ES6 en JavaScript.
 author: jane-doe
 # image: https://placehold.co/1400x900/
 # image: '/assets/images/post-01.png'
-image: './images/post-01.png'
+image: "./images/post-01.png"
 tags: [JavaScript, ES6, Programming]
 # layout: ../../layouts/BlogLayout.astro
 ---
 
 # {frontmatter.title}
 
-{/* <!-- Mostrar imagen -po-> */}
-{/* <img src="/assets/images/post-01.png" width="350" alt="Explorando Funciones de ES6" /> */}
+{/_ <!-- Mostrar imagen -po-> _/}
+{/_ <img src="/assets/images/post-01.png" width="350" alt="Explorando Funciones de ES6" /> _/}
 
 JavaScript ES6 introdujo varias funciones nuevas que han hecho que la codificación en JavaScript sea más eficiente y agradable. Vamos a explorar algunas de estas funciones.
 
@@ -35,7 +35,7 @@ Los literales de plantilla permiten una interpolación de cadenas más fácil y 
 ### Ejemplo
 
 ```javascript
-const name = 'Jane';
+const name = "Jane";
 console.log(`Hello, ${name}!`);
 // Output: Hello, Jane!
 ```
@@ -47,7 +47,7 @@ La asignación por desestructuración le permite extraer valores de matrices u o
 ### Ejemplo
 
 ```javascript
-const person = { name: 'Jane', age: 30 };
+const person = { name: "Jane", age: 30 };
 const { name, age } = person;
 console.log(name, age); // Output: Jane 30
 ```
